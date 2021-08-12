@@ -1,4 +1,5 @@
 import Address from "../address/Address";
+import Company from "../company/Company";
 
 export default function User (props) {
   const {id, name, username, email, address, phone, website, company} = props.person
@@ -10,7 +11,7 @@ export default function User (props) {
         <li>Address: <Address info={address}/></li>
         <li>{phone}</li>
         <li>{website}</li>
-        {/*<li>{company}</li>*/}
+        <li>Company:<Company companyDetails={company}/></li>
       </ul>
     </div>
   );

@@ -240,6 +240,13 @@ function App() {
             <User person={usersList[0]}/>
             <User person={usersList[1]}/>
             <User person={usersList[2]}/>
+            <User person={usersList[3]}/>
+            <User person={usersList[4]}/>
+            <User person={usersList[5]}/>
+            <User person={usersList[6]}/>
+            <User person={usersList[7]}/>
+            <User person={usersList[8]}/>
+            <User person={usersList[9]}/>
         </div>
     );
 }

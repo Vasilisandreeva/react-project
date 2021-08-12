@@ -1,3 +1,4 @@
+import './User.css'
 import Address from "../address/Address";
 import Company from "../company/Company";
 

@@ -1,7 +1,7 @@
-let url = 'https://jsonplaceholder.typicode.com/';
+let url = 'https://jsonplaceholder.typicode.com';
 
-const getPosts = (id) => {
-    return fetch(url + '/' + id + '/posts').then(value => value.json());
+const getPosts = () => {
+    return fetch(url + '/posts').then(value => value.json());
 }
 
 export {getPosts};

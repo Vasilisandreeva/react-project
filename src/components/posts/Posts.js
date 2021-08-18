@@ -3,18 +3,26 @@ import {useEffect, useState} from "react";
 import {getPosts} from "../../service/posts.service";
 
 export default function Posts() {
-
-    let [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState([]);
+    const [chosenPost, setChosenPost] = useState(null);
 
     useEffect(() => {
-        getPosts().than(responce => setPosts(responce))
-    }, [])
+        getPosts().then(value => setPosts([...value]))
+    }, []);
 
-  return (
-    <div>
-        {
-            posts.map(item => <Post key={item.id} item={item}/>)
-        }
-    </div>
-  );
+    return (
+        <div>
+            {
+                chosenPost &&
+                <div>
+                    <p>id: {chosenPost.id}</p>
+                    <p>title: {chosenPost.title}</p>
+                    <p>body: {chosenPost.body}</p>
+                </div>
+            }
+            {
+                posts.map(value => <Post key={value.id} item={value} setChosenPost={setChosenPost}/>)
+            }
+        </div>
+    );
 }

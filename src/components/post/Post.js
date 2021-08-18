@@ -1,7 +1,10 @@
-export default function Post({itemP}) {
-  return (
+import Comments from "../comments/Comments";
+
+export default function Post({item, setChosenPost, setChosenComments}){
+ return (
     <div>
-      {itemP.body}
+        title: {item.title}
+        <button onClick={() => setChosenPost(item)}>show post info</button>
     </div>
   );
 }

@@ -1,24 +1,30 @@
-import {createRef, useState} from "react";
+import {saveCars} from "../service/car.api.service";
 
 export default function Form() {
 
 
-let onFormSubmit = (e) => {
+let saveCarForm = (e) => {
     e.preventDefault();
-    console.log('form submit');
-    console.log(e.target.cars.value);
-    console.log(e.target.models.value);
-    let carToSave = {cars: e.target.cars.value, models: e.target.models.value};
-    console.log(carToSave)
+    let carToSave = {car: e.target.car.value, model: e.target.model.value, year: e.target.year.value};
+    saveCars(carToSave);
 }
+
+// let  carTemp = {
+//     model: carModel,
+//     price: +carPrice,
+//     year: +carYear
+// }
 
   return (
     <div>
-        <form onSubmit={onFormSubmit}>
-            <input type="text" name={'cars'} placeholder={'cars'}/>
-            <input type="price" name={'models'} placeholder={'models'}/>
+        <form onSubmit={saveCarForm}>
+            <h3>Form for adding a car</h3>
+            <input type="text" name={'car'} placeholder={'car'}/>
+            <input type="number" name={'model'} placeholder={'model'}/>
+            <input type="number" name={'year'} placeholder={'year'}/>
             <button>Save</button>
         </form>
+
     </div>
   );
 }

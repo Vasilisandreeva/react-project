@@ -2,8 +2,8 @@ import Car from "../car/Car";
 import {getCars} from "../../services/cars.api";
 import {useEffect, useState} from "react";
 
-export default function Cars() {
-  const [cars, setCars] = useState([])
+export default function Cars({cars, setCars}) {
+
   useEffect(() => {
     getCars().then(value => setCars(value))
   }, [])

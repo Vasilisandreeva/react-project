@@ -9,4 +9,18 @@ const getCars = () => {
         .then((response) => response.json())
 }
 
-export {getCars}
+const saveCars = (sCar) => {
+    return  fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(sCar),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then(() => getCars())
+}
+
+
+
+
+export {getCars, saveCars}

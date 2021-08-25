@@ -1,25 +1,28 @@
 import {saveCars} from "../service/car.api.service";
+import {useState} from "react";
 
-export default function Form() {
+export default function Form({setCars, setFormData, formData}) {
+    let saveCarForm = (e) => {
+        e.preventDefault();
+        saveCars(formData).then(data => setCars(data))
+    }
 
+    const qqqq = (e) => {
+        setFormData({...formData, [e.target.name]: e.target.value});
+    }
 
-let saveCarForm = (e) => {
-    e.preventDefault();
-    let carToSave = {car: e.target.car.value, model: e.target.model.value, year: e.target.year.value};
-    saveCars(carToSave);
-}
+    return (
+        <div>
+            <form onSubmit={saveCarForm}>
+                <h3>Form for adding a car</h3>
+                <input onChange={qqqq} value={formData.model} type="text" name={'model'} placeholder={'model'}
+                       minLength={1} maxLength={20}/>
+                <input onChange={qqqq} value={formData.price} type="number" name={'price'} placeholder={'price'} min={0}/>
+                <input onChange={qqqq} value={formData.year} type="number" name={'year'} placeholder={'year'} min={1990}
+                       max={2021}/>
+                <button>Save</button>
+            </form>
 
-
-  return (
-    <div>
-        <form onSubmit={saveCarForm}>
-            <h3>Form for adding a car</h3>
-            <input type="text" name={'model'} placeholder={'model'} minLength={1} maxLength={20}/>
-            <input type="number" name={'price'} placeholder={'price'} />
-            <input type="number" name={'year'} placeholder={'year'} min={1990} max={2021}/>
-            <button>Save</button>
-        </form>
-
-    </div>
-  );
+        </div>
+    );
 }

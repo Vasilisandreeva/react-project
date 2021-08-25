@@ -9,6 +9,17 @@ const saveCars = (sCar) => {
         .then(() => getCars())
 }
 
+const putCar = (sCar) => {
+    return  fetch('http://91.201.233.14/api/v1/cars/' + sCar.id, {
+    method: 'PUT',
+    body: JSON.stringify(sCar),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    },
+    })
+        .then(() => getCars())
+}
+
 const getCars = () => {
     return  fetch('http://91.201.233.14/api/v1/cars', {
     headers: {
@@ -19,7 +30,7 @@ const getCars = () => {
 }
 
 const editCar = (id) => {
-    return fetch('http://91.201.233.14/api/v1/cars' + '/' + id, {
+    return fetch('http://91.201.233.14/api/v1/cars/' + id, {
         method: 'PUT',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -29,7 +40,7 @@ const editCar = (id) => {
 }
 
 const deleteCar = (id) => {
-    return  fetch('http://91.201.233.14/api/v1/cars' + '/' + id, {
+    return  fetch('http://91.201.233.14/api/v1/cars/' + id, {
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
@@ -38,4 +49,4 @@ const deleteCar = (id) => {
         .then(() => getCars())
 }
 
-export {saveCars, getCars, editCar, deleteCar}
+export {saveCars, getCars, editCar, deleteCar, putCar}

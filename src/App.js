@@ -5,7 +5,7 @@ import {useState} from "react";
 
 function App() {
     const [cars, setCars] = useState(null);
-    const [formData, setFormData] = useState({model: 'sdf', price: '1', year: ''})
+    const [formData, setFormData] = useState({model: '', price: '', year: ''})
 
     return (
         <div>

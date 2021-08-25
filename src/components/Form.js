@@ -9,19 +9,14 @@ let saveCarForm = (e) => {
     saveCars(carToSave);
 }
 
-// let  carTemp = {
-//     model: carModel,
-//     price: +carPrice,
-//     year: +carYear
-// }
 
   return (
     <div>
         <form onSubmit={saveCarForm}>
             <h3>Form for adding a car</h3>
-            <input type="text" name={'car'} placeholder={'car'}/>
-            <input type="text" name={'model'} placeholder={'model'}/>
-            <input type="number" name={'year'} placeholder={'year'}/>
+            <input type="text" name={'model'} placeholder={'model'} minLength={1} maxLength={20}/>
+            <input type="number" name={'price'} placeholder={'price'} />
+            <input type="number" name={'year'} placeholder={'year'} min={1990} max={2021}/>
             <button>Save</button>
         </form>
 

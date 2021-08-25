@@ -1,21 +1,20 @@
 import Car from "../car/Car";
 import {useEffect, useState} from "react";
-import {saveCars} from "../../service/car.api.service";
+import {getCars} from "../../service/car.api.service";
 
 
 export default function Cars() {
+    const [cars, setCars] = useState(null);
 
-  const [cars, setCars] = useState([]);
+    useEffect(() => {
+        getCars().then(responce => setCars(responce))
+    }, [])
 
-  useEffect(() => {
-    saveCars().then(responce => setCars(responce))
-  }, [])
-
-  return (
-    <div>
-      {
-        cars.map(value => <Car key={value.id} value={value}/>)
-      }
-    </div>
-  );
+    return (
+        <div>
+            {
+                cars && cars.map(value => <Car key={value.id} item={value}/>)
+            }
+        </div>
+    );
 }

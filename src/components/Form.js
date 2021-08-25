@@ -20,7 +20,7 @@ let saveCarForm = (e) => {
         <form onSubmit={saveCarForm}>
             <h3>Form for adding a car</h3>
             <input type="text" name={'car'} placeholder={'car'}/>
-            <input type="number" name={'model'} placeholder={'model'}/>
+            <input type="text" name={'model'} placeholder={'model'}/>
             <input type="number" name={'year'} placeholder={'year'}/>
             <button>Save</button>
         </form>

@@ -15,21 +15,21 @@ function App() {
         <div>
           <Link to={'/'}>to default page</Link>
           <br/>
-          <Link to={'/users-page'}>to users</Link>
+          <Link to={'/users'}>to users</Link>
           <br/>
-          <Link to={'/posts-page'}>to posts</Link>
+          <Link to={'/posts'}>to posts</Link>
           <br/>
-          <Link to={'/comments-page'}>to comments</Link>
+          <Link to={'/comments'}>to comments</Link>
 
-            <Route path={'/users-page'}>
+            <Route path={'/users'}>
               <h3>users</h3>
               <Users/>
             </Route>
-          <Route path={'/posts-page'}>
+          <Route path={'/posts'}>
             <h3>posts</h3>
               <Posts/>
           </Route>
-          <Route path={'/comments-page'}>
+          <Route path={'/comments'}>
             <h3>comments</h3>
             <Comments/>
           </Route>

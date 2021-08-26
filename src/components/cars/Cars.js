@@ -1,6 +1,6 @@
 import Car from "../car/Car";
-import {deleteCar, getCars} from "../../services/cars.api";
 import {useEffect} from "react";
+import {deleteCar, getCars} from "../../services/cars.api";
 
 export default function Cars({cars, setCars, setFormData}) {
 
@@ -15,7 +15,7 @@ export default function Cars({cars, setCars, setFormData}) {
   return (
     <div>
       {
-     cars && cars.map(value => <Car key={value.id} item={value} btnOnClickDelete={btnOnClickDelete}/>)
+     cars && cars.map(value => <Car key={value.id} item={value} btnOnClickDelete={btnOnClickDelete} setFormData={setFormData}/>)
       }
     </div>
   );

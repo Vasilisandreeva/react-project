@@ -30,6 +30,18 @@ const deleteCar = (id) => {
     .then(() => getCars())
 }
 
+const editCar = (sCar) => {
+    return fetch('http://91.201.233.14/api/v1/cars' + sCar.id, {
+        method: 'PUT',
+            body: JSON.stringify(sCar),
+            headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then(() => getCars())
+}
 
 
-export {getCars, saveCars, deleteCar}
+
+
+export {getCars, saveCars, deleteCar, editCar}

@@ -1,9 +1,9 @@
 import {saveCars} from "../../services/cars.api";
 
-export default function Form({setCars}) {
+export default function Form({setCars, formData, setFormData}) {
     const saveCarForm = (f) => {
         f.preventDefault();
-        saveCars().then(data => setCars(data))
+        saveCars(formData).then(data => setCars(data))
     }
 
   return (

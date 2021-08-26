@@ -1,17 +1,21 @@
 import Car from "../car/Car";
-import {getCars} from "../../services/cars.api";
+import {deleteCar, getCars} from "../../services/cars.api";
 import {useEffect} from "react";
 
-export default function Cars({cars, setCars}) {
+export default function Cars({cars, setCars, setFormData}) {
 
   useEffect(() => {
     getCars().then(value => setCars(value))
   }, [])
 
+  const btnOnClickDelete = (d) => {
+    deleteCar(d).then(response => setCars(response))
+  }
+
   return (
     <div>
       {
-     cars.map(value => <Car key={value.id} item={value}/>)
+     cars && cars.map(value => <Car key={value.id} item={value} btnOnClickDelete={btnOnClickDelete}/>)
       }
     </div>
   );

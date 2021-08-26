@@ -20,7 +20,16 @@ const saveCars = (sCar) => {
         .then(() => getCars())
 }
 
+const deleteCar = (id) => {
+    return  fetch('http://91.201.233.14/api/v1/cars/' + id, {
+    method: 'DELETE',
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    },
+})
+    .then(() => getCars())
+}
 
 
 
-export {getCars, saveCars}
+export {getCars, saveCars, deleteCar}

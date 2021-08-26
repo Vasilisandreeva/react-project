@@ -4,11 +4,13 @@ import Form from "./components/form/Form";
 import {useState} from "react";
 
 function App() {
-    const [cars, setCars] = useState([])
-  return (
+    const [cars, setCars] = useState(null)
+    const [formData, setFormData] = useState({model: '', price: '', year: ''})
+
+    return (
     <div>
-        <Form setCars={setCars}/>
-        <Cars cars={cars} setCars={setCars}/>
+        <Form setCars={setCars} formData={formData} setFormData={setFormData}/>
+        <Cars cars={cars} setCars={setCars} setFormData={setFormData}/>
     </div>
   );
 }

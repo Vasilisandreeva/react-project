@@ -4,7 +4,7 @@ import Form from "./components/form/Form";
 import {useState} from "react";
 
 function App() {
-    const [cars, setCars] = useState(null)
+    const [cars, setCars] = useState([])
   return (
     <div>
         <Form setCars={setCars}/>

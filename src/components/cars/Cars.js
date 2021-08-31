@@ -1,11 +1,11 @@
+import Car from "../car/Car";
 import {useEffect, useState} from "react";
 import {getCars} from "../../service/cars.service";
-import Car from "../car/Car";
 
 export default function Cars() {
     const [cars, setCars] = useState([]);
     useEffect(() => {
-        getCars().then(responce => setCars(responce));
+        getCars().then(response => setCars(response));
         console.log(setCars)
     }, [])
 

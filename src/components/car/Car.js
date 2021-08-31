@@ -1,7 +1,7 @@
-export default function Car({model, price, year}) {
+export default function Car({item}) {
   return (
     <div>
-        {model - price - year}
+        car
     </div>
   );
 }

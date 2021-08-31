@@ -1,23 +1,22 @@
-let url = 'http://192.168.1.253/api/v1/cars/';
+let url = 'http://91.201.233.14/api/v1/cars';
 
 const getCars = () => {
     return fetch(url, {
-        method: 'GET',
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
     })
+        .then(response => response.json())
 }
 
-const createCar = () => {
+const createCar = (saveCar) => {
     return fetch(url, {
         method: 'POST',
-        body: JSON.stringify({}),
+        body: JSON.stringify(saveCar),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
     })
-        .then((responce) => responce.json())
-        .then((json) => console.log(json))
+        .then(() => getCars())
 }
 export {getCars, createCar}

@@ -6,13 +6,12 @@ export default function Cars() {
     const [cars, setCars] = useState([]);
     useEffect(() => {
         getCars().then(response => setCars(response));
-        console.log(setCars)
     }, [])
 
     return (
     <div>
         {
-            cars.map(value => <Car key={value.model} item={value}/>)
+            cars.map(value => <Car key={value.id} item={value}/>)
         }
     </div>
   );
